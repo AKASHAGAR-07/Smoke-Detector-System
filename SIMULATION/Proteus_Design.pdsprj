@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProteusProject Version="8.12" Creator="Proteus VSM" Date="2024-06-12" Title="Smoke Detector System NodeMCU Simulation">
+    <Schematic>
+        <Component ID="U1" Type="NodeMCU_ESP8266" Label="NodeMCU (ESP8266-12E)">
+            <Pin ID="A0" Net="SENSOR_ANALOG"/>
+            <Pin ID="D1" Net="I2C_SCL"/>
+            <Pin ID="D2" Net="I2C_SDA"/>
+            <Pin ID="D6" Net="LED_SAFE"/>
+            <Pin ID="D7" Net="LED_ALARM"/>
+            <Pin ID="D8" Net="BUZZER_OUT"/>
+            <Pin ID="GND" Net="GND"/>
+            <Pin ID="VIN" Net="5V"/>
+        </Component>
+        <Component ID="SEN1" Type="MQ2_Gas_Sensor" Label="MQ-2 Smoke Sensor">
+            <Pin ID="VCC" Net="5V"/>
+            <Pin ID="GND" Net="GND"/>
+            <Pin ID="A0" Net="SENSOR_ANALOG"/>
+            <Pin ID="D0" Net="NC"/>
+        </Component>
+        <Component ID="LCD1" Type="LM016L_I2C" Label="16x2 I2C Character LCD">
+            <Pin ID="VCC" Net="5V"/>
+            <Pin ID="GND" Net="GND"/>
+            <Pin ID="SDA" Net="I2C_SDA"/>
+            <Pin ID="SCL" Net="I2C_SCL"/>
+        </Component>
+        <Component ID="BZ1" Type="Buzzer_Active" Label="Alarm Buzzer">
+            <Pin ID="POS" Net="BUZZER_OUT"/>
+            <Pin ID="NEG" Net="GND"/>
+        </Component>
+        <Component ID="LED_G" Type="LED_Green" Label="Safe LED">
+            <Pin ID="ANODE" Net="LED_SAFE"/>
+            <Pin ID="CATHODE" Net="GND_R"/>
+        </Component>
+        <Component ID="LED_R" Type="LED_Red" Label="Alarm LED">
+            <Pin ID="ANODE" Net="LED_ALARM"/>
+            <Pin ID="CATHODE" Net="GND_R"/>
+        </Component>
+    </Schematic>
+    <SimulationConfig Model="ESP8266" Clock="80MHz" RunState="Initialized">
+        <Firmware Path="../CODE/Smoke_Detector.ino.bin"/>
+    </SimulationConfig>
+</ProteusProject>
